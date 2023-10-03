@@ -5,12 +5,32 @@
 int main()
 {
     int a,b,c;
-    printf("Enter a: ");
-    scanf("%d",&a);
-    printf("\nEnter b: ");
-    scanf("%d",&b);
-    printf("\nEnter c: ");
-    scanf("%d",&c);
+    printf("Enter coefficient: ");
+    scanf("%d,%d,%d",&a,&b,&c);
+    puts("Roots of the equation: ");
+
+    switch (a){
+        case 0: break;
+        case 1: printf("x^2"); break;
+        case -1: printf("-x^2"); break;
+        default: printf("%dx^2",a);
+    }
+
+    if (b>0) printf("+");
+
+    switch (b){
+        case 0: break;
+        case 1: printf("x"); break;
+        case -1: printf("-x"); break;
+        default: printf("%dx",b);
+    }
+
+    if (c>0) printf("+");
+
+    switch (c){
+        case 0: break;
+        default: printf("%d",c);
+    }
 
     float x1,x2;
 
