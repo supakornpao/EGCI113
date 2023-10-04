@@ -6,7 +6,7 @@ int main()
 {
     int a,b,c;
     printf("Enter coefficient: ");
-    scanf("%d,%d,%d",&a,&b,&c);
+    scanf("%d,%d,%d",&a,&b,&c); //ax^2+bx+c
     puts("Roots of the equation: ");
 
     switch (a){
@@ -16,7 +16,7 @@ int main()
         default: printf("%dx^2",a);
     }
 
-    if (b>0) printf("+");
+    if (a!=0&&b>0) printf("+");
 
     switch (b){
         case 0: break;
@@ -25,12 +25,9 @@ int main()
         default: printf("%dx",b);
     }
 
-    if (c>0) printf("+");
+    if ((a!=0||b!=0)&&c>0) printf("+");
+    if (c!=0) printf("%d=0\n",c);
 
-    switch (c){
-        case 0: break;
-        default: printf("%d",c);
-    }
 
     float x1,x2;
 
@@ -39,11 +36,13 @@ int main()
 
     if (pow(b,2)<4*a*c)
         printf("\nNo real solution");
-    else if (a==0&&b==0)
-        printf("\nThere are no value of x");
+
     else if (a==0){
-        x1=-(float)c/(float)b;
-        printf("\nx is equal to %.1f",x1);
+            if (b!=0){
+                x1=-(float)c/(float)b;
+                printf("\nx is equal to %.1f",x1);
+            }
+            else printf("No solution");
     }
     else if (sqrt(pow(b,2)-4*a*c==0))
         printf("\nOne real root is %.1f",x1);
