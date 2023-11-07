@@ -25,8 +25,10 @@ int main()
             small=x[i];
     }
 
-    printf("\nThe highest score is %d", big);
-    printf("\nThe lowest score is %d", small);
+    for(i=0;i<size;i++){
+        if(x[i]==big) printf("\n%d has the maximum score",i+1);
+        if(x[i]==small) printf("\n%d has the minimum score",i+1);
+    }
 
     int sum=0;
     float avg;
