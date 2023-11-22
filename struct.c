@@ -8,7 +8,7 @@
     char grade;
  };
 
-int getstudent(struct student[]);
+void getstudent(struct student[],int);
 void studentsgrade(struct student[],int);
 void showstudent(struct student[],int);
 void highestscore(struct student[],int);
@@ -20,26 +20,24 @@ int main()
     struct student cst[size];
     double big;
 
-    size=getstudent(cst);
+    printf("How many students?: ");
+    scanf("%d", &size);
+    getstudent(cst,size);
     studentsgrade(cst,size);
     showstudent(cst,size);
     highestscore(cst,size);
 
-
     return 0;
 }
 
-int getstudent(struct student cst[]){
-    int i,size;
-    printf("How many students?: ");
-    scanf("%d", &size);
+void getstudent(struct student cst[],int size){
+    int i;
     for(i=0;i<size;i++){
         printf("Input name %d: ",i+1);
         scanf("%s",cst[i].name);
         printf("Score: ");
         scanf("%lf",&cst[i].score);
     }
-    return size;
 }
 void studentsgrade(struct student cst[],int size){
     int i;
@@ -61,13 +59,13 @@ void showstudent(struct student cst[],int size){
 void highestscore(struct student cst[],int size){
     int i,max;
     double biggest;
+    biggest=cst[0].score;
+    max=0;
     for(i=0;i<size;i++){
-        biggest=cst[0].score;
         if(cst[i].score>biggest){
             biggest=cst[i].score;
             max=i;
         }
-        else max=i;
     }
     printf("%s got the highest score ,which is %.2lf", cst[max].name, biggest);
 }
