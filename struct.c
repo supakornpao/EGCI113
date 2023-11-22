@@ -67,5 +67,6 @@ void highestscore(struct student cst[],int size){
             max=i;
         }
     }
-    printf("%s got the highest score ,which is %.2lf", cst[max].name, biggest);
+    printf("====Student with the highest score is====");
+    printf("\n%s got %.2lf points,which is grade %c", cst[max].name, biggest, cst[max].grade);
 }
